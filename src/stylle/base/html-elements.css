@@ -9,16 +9,36 @@ pre {
   margin: 0 0 1.5em;
 }
 
-html {
+html, body {
   height: 100%;
-  color: hsl(0,0%,25%);
+}
+
+html {
   font: 400 1em/1.4 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #131417;
+  margin: 0;
+}
+
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
   html {
     font-weight: 300;
   }
+}
+
+form {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -29,6 +49,7 @@ h1 {
   line-height: 1;
   margin: .25em 0 .75em;
 }
+
 @media (min-width: 768px) {
   h1 {
     font-size: 2.5em;
@@ -36,17 +57,10 @@ h1 {
   }
 }
 
-
 h2 {
   font-size: 1.333em;
   font-weight: 600;
   margin: 0 0 calc(1.5em/1.333);
-}
-
-h3 {
-  font-size: 1em;
-  font-weight: 600;
-  margin: 0 0 1.5em;
 }
 
 p,
@@ -78,22 +92,6 @@ a {
 a:focus,
 a:hover {
   border-bottom: 1px solid hsl(150, 45%, 50%);
-}
-
-ol,
-ul {
-  list-style: square;
-  margin: 0 0 1.5em;
-  padding: 0 0 0 1.5em;
-}
-
-li {
-  margin-bottom: 0.333em;
-}
-
-
-figure {
-  margin: 0;
 }
 
 strong {
