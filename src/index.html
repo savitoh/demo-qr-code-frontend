@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Gerador QR CODE</title>
+        <title>QR-CODE Generator</title>
 
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
@@ -10,36 +10,43 @@
         <meta name="description" content="App para geração de QR CODE">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic" rel="stylesheet">
     </head>
 
     <body class="app">
-        <header class="app-header">
-            <div class="Header" role="banner">
-                <div class="Header-titles">
-                    <h1 class="Header-title"><a href="/">QR CODE Generator</a></h1>
-                    <h2 class="Header-subTitle">A partir de URL</h2>
-                </div>
-                <div class="Header-actions">
-                    <a class="Header-button Button Button--action Button--wide"
-                       ga-on="click"
-                       ga-hit-type="social"
-                       ga-social-network="Github"
-                       ga-social-action="view-source"
-                       ga-social-target="https://github.com/savitoh/demo-qr-code-frontend"
-                       href="https://github.com/savitoh/demo-qr-code-frontend">
-                      <span class="icon-github icon-large"></span>&nbsp; Acesse o Código Fonte
-                    </a>
-                  </div>
-            </div>
-        </header>
         <main class="app-content app-content--full">
-
+            <section class="section">
+                <div class="cointainer">
+                    <div class="section-titles">
+                        <h1 class="section-title"><a href="/">Generator <i>of</i> QR-CODE</a></h1>
+                        <h2 class="section-subTitle">Easy Generator QR-CODE</h2>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="app-form-container">
+                        <div class="app-form-input-container">
+                            <form>
+                                <label class="app-label-input-text">
+                                    <input class="app-input-text" type="text" placeholder="Enter the URL" autocapitalize="off">
+                                </label>
+                            </form>
+                        </div>
+                        <button class="button button-bold button-green">Generate</button>
+                        <button class="button button-bold">Clean</button>
+                    </div>     
+                </div>
+            </section>
         </main>
-
         <footer class="app-footer">
-            
+            <div class="footer">
+                <div class="footer-credits">
+                   <span class="footer-credit">Created and maintained by: <a href="https://twitter.com/savit0h">Sávio Raires</a>.</span>
+                   <span class="footer-credit">Available Project Code <a href="https://github.com/savitoh/qr-code-generator-frontend">GitHub</a></span>
+                   <span class="footer-credit">Template modified from the project: <a href="https://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox.</a> </span>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
