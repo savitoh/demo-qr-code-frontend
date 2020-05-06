@@ -2,6 +2,9 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
 }
 
 p,
@@ -25,7 +28,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background: #131417;
-  margin: 0;
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
@@ -35,10 +37,7 @@ body {
 }
 
 form {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  display: block;
 }
 
 h1 {
@@ -61,27 +60,6 @@ h2 {
   font-size: 1.333em;
   font-weight: 600;
   margin: 0 0 calc(1.5em/1.333);
-}
-
-p,
-pre {
-  margin: 0 0 1.5em;
-}
-
-code,
-pre {
-  font-family: 'Menlo', 'Monaco', monospace;
-}
-
-code {
-  font-size: .9em;
-  font-weight: normal;
-  color: #000;
-}
-
-pre > code {
-  font: inherit;
-  color: inherit;
 }
 
 a {
