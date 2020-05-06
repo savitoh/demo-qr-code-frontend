@@ -1,9 +1,8 @@
-'use strict';
 
 import { getNameFileFromContentDispositionHeader } from "../utils/headers-utils";
 
 
-const API_QR_CODE_URL = 'http://localhost:8081/api/v1/qrcode';
+const API_QR_CODE_URL = process.env.API_QR_CODE_URL;
 
 const requestHeaders = new Headers({
     'Content-Type': 'application/json'

@@ -4,9 +4,9 @@
   "description": "Front End para gerar QR CODEs",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "dev": "NODE_ENV=development webpack --mode development",
+    "build": "NODE_ENV=production webpack --mode production",
+    "start": "NODE_ENV=development webpack-dev-server --mode development --open"
   },
   "author": "Sávio Raires",
   "license": "ISC",
@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6",
-    "core-js": "^3.6.5",
-    "materialize-css": "^1.0.0-rc.2"
+    "core-js": "^3.6.5"
   }
 }
