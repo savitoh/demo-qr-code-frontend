@@ -27,14 +27,18 @@
                 <div class="container">
                     <div class="app-form-container">
                         <div class="app-form-input-container">
-                            <form>
+                            <form aria-labelledby="search-title">
                                 <label class="app-label-input-text">
-                                    <input class="app-input-text" type="text" placeholder="Enter the URL" autocapitalize="off">
+                                    <input class="app-input-text" 
+                                           id="input-url" type="text" 
+                                           placeholder="Enter the URL ..." 
+                                           autocomplete="off" 
+                                           autofocus required>
                                 </label>
                             </form>
                         </div>
-                        <button class="button button-bold button-green">Generate</button>
-                        <button class="button button-bold">Clean</button>
+                        <button type="button" disabled class="button button-bold button-green" id="btn-generate-qrcode">Generate</button>
+                        <button type="button" disabled class="button button-bold" id="btn-clean-input-url">Clean</button>
                     </div>     
                 </div>
             </section>
