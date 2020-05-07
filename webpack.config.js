@@ -18,7 +18,7 @@ module.exports = {
     entry: './src/index.js', //location of your main js file
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js'  // where js files would be bundled to
+        filename: 'bundle.js'  // where js files would be bundled to
    },
    devServer: {
         contentBase: './dist' //where contents are served from
