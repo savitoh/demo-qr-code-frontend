@@ -8,7 +8,7 @@ const defineUrlQrCodeApi = () => {
         case 'production':
             return 'https://demo-qr-code.herokuapp.com/';
         case 'development':
-            return 'http://localhost:8081/api/v1/qrcode';
+            return 'http://localhost:8081/api/v1/qrcodes';
         default:
             throw Error(`The ${process.env.NODE_ENV} profile unmapped`);
     }

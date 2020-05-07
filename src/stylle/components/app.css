@@ -24,7 +24,7 @@
     height: 0px;
     visibility: hidden;
   }
-  @media (--break-lg) {
+  @media (min-width: 768px) {
     .app-content {
       padding-top: var(--space-lg);
     }
@@ -47,7 +47,6 @@
     justify-content: flex-end;
     position: relative;
     z-index: 12;
-    height: 74px;
     margin: 0;
   }
 
