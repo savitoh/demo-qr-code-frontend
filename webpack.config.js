@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
-const defineUrlQrCodeApi = () => {
+const defineServerQrCodeApiFromEnvironment = () => {
     switch (process.env.NODE_ENV) {
         case 'production':
-            return 'https://demo-qr-code.herokuapp.com/';
+            return 'https://demo-qr-code.herokuapp.com';
         case 'development':
-            return 'http://localhost:8081/api/v1/qrcodes';
+            return 'http://localhost:8081';
         default:
             throw Error(`The ${process.env.NODE_ENV} profile unmapped`);
     }
@@ -31,7 +31,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
         'process.env': {
-            'API_QR_CODE_URL': JSON.stringify(defineUrlQrCodeApi())
+            'API_QR_CODE_URL': JSON.stringify(defineServerQrCodeApiFromEnvironment())
         }
     })
    ],

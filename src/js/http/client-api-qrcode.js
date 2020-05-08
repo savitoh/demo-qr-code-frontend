@@ -1,8 +1,9 @@
 
 import { getNameFileFromContentDispositionHeader } from "../utils/headers-utils";
 
+const contextPathApiQrCode = '/api/v1/qrcodes';
 
-const API_QR_CODE_URL = process.env.API_QR_CODE_URL;
+const API_QR_CODE_URL = `${process.env.API_QR_CODE_URL}${contextPathApiQrCode}`;
 
 const requestHeaders = new Headers({
     'Content-Type': 'application/json'
