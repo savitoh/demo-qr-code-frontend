@@ -2,7 +2,7 @@
 
 const  headerContentDisposition = 'Content-Disposition';
 
-const getNameFileFromContentDispositionHeader  = (headers) => {
+const getFileNameFromContentDispositionHeader  = (headers) => {
     if(headers instanceof Headers && headers.has(headerContentDisposition)) {
         const fileName =  headers.get('Content-Disposition')
                             .split(';')
@@ -15,4 +15,4 @@ const getNameFileFromContentDispositionHeader  = (headers) => {
     throw Error(`The ${headers} provided arguments are not Headers`);
 }
 
-export {getNameFileFromContentDispositionHeader};
+export {getFileNameFromContentDispositionHeader};

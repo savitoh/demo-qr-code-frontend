@@ -1,6 +1,7 @@
 'use strict';
 
-import { getNameFileFromContentDispositionHeader as getFileNameFromContentDispositionHeader } from "../utils/headers-utils";
+import { getFileNameFromContentDispositionHeader } from "./utils/headers-utils";
+
 
 const contextPathApiQrCode = '/api/v1/qrcodes';
 
