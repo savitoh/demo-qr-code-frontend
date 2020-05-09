@@ -1,6 +1,6 @@
 'use strict';
 
-import { getNameFileFromContentDispositionHeader } from "../utils/headers-utils";
+import { getNameFileFromContentDispositionHeader as getFileNameFromContentDispositionHeader } from "../utils/headers-utils";
 
 const contextPathApiQrCode = '/api/v1/qrcodes';
 
@@ -17,24 +17,22 @@ const createQrCodeRequestPayload = (urlTarget) => {
     return JSON.stringify({uriTarget: urlTarget});
 }
 
-const downloadQrCode = async (qrCodeRequestPayload) => {
-    requestOptions['body'] = qrCodeRequestPayload; 
-    let fileName;
-    await fetch(API_QR_CODE_URL, requestOptions)
-        .then(response => {
-            const responseHeaders = response.headers;
-            fileName = getNameFileFromContentDispositionHeader(responseHeaders);
-            return response.blob();
-        })
-        .then(blob => URL.createObjectURL(blob))
-        .then(url => {
-            const anchor = document.createElement('a');
-            anchor.href = url;
-            anchor.setAttribute('download', fileName);
-            anchor.click();
-            URL.revokeObjectURL(url);
-        })
+const createQrCode = async (qrCodeRequestPayload) => {
+    requestOptions['body'] = qrCodeRequestPayload;
+    const response = await fetch(API_QR_CODE_URL, requestOptions);
+    if(response.ok) {
+        const responseHeaders = response.headers;
+        const fileName = getFileNameFromContentDispositionHeader(responseHeaders);
+        return await response.blob()
+            .then(blob => {
+                return {
+                    file: blob,
+                    fileName: fileName
+                }
+            });
+    }
+    return Promise.reject(response);
 }
 
 
-export {downloadQrCode, createQrCodeRequestPayload};
+export {createQrCode, createQrCodeRequestPayload};

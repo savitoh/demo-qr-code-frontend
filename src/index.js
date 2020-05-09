@@ -2,7 +2,7 @@
 
 import './main.css';
 
-import {downloadQrCode, createQrCodeRequestPayload}  from './js/http/client-api-qrcode.js';
+import {createQrCode, createQrCodeRequestPayload}  from './js/http/client-api-qrcode.js';
 
 
 const elementInputUrl = document.querySelector('#input-url');
@@ -20,11 +20,28 @@ elementBtnCleanInputUrl.addEventListener('click', () => {
 });
 
 
-elementBtnGenerateQrCode.addEventListener('click', () => {
+elementBtnGenerateQrCode.addEventListener('click', async () => {
     const url = elementInputUrl.value;
     const qrcodeRequestPayload =  createQrCodeRequestPayload(url);
-    downloadQrCode(qrcodeRequestPayload);
+    await createQrCode(qrcodeRequestPayload)
+        .then(response => downloadQrCode(response))
+        .catch(error => analiseErroDownloadQrCode(error));
 })
+
+const downloadQrCode = (qrCode) => {
+    const url = URL.createObjectURL(qrCode.file);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.setAttribute('download', qrCode.fileName);
+    anchor.click();
+    URL.revokeObjectURL(url);
+}
+
+const analiseErroDownloadQrCode = async (error) => {
+    await error.json()
+        .then(errorResponse => console.log(errorResponse))
+        .catch(error => console.log(error));
+}
 
 const desabilitaBtns = () => {    
     elementBtnCleanInputUrl.disabled = true;
