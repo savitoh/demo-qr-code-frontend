@@ -1,6 +1,6 @@
 # QR Code Generator (Front End)
 
-[![Build Status](https://travis-ci.org/savitoh/qr-code-generator-frontend.svg?branch=master)](https://travis-ci.org/savitoh/qr-code-generator-frontend.svg?branch=master)
+[![Build Status](https://api.travis-ci.org/savitoh/qrcode-generator-frontend.svg?branch=master)](https://api.travis-ci.org/savitoh/qrcode-generator-frontend.svg?branch=master)
 
 Projeto para gerar QR Code de uma URL digitada pelo usuário. Consumindo para tal a API: [QR Code Generator]
 
