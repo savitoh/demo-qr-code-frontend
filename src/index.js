@@ -3,6 +3,7 @@
 import './main.css';
 
 import {createQrCode, createQrCodeRequestPayload}  from './js/http/client-api-qrcode.js';
+import { openToast } from './js/component/toast';
 
 
 const elementInputUrl = document.querySelector('#input-url');
@@ -39,7 +40,7 @@ const downloadQrCode = (qrCode) => {
 
 const analiseErroDownloadQrCode = async (error) => {
     await error.json()
-        .then(errorResponse => console.log(errorResponse))
+        .then(errorResponse => openToast(errorResponse.error))
         .catch(error => console.log(error));
 }
 

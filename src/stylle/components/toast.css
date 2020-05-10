@@ -1,0 +1,22 @@
+.toast {
+    --toast_background_color :#555555;
+    --toast_text_color : #FFFFFF;
+    position: fixed;
+    right: 50px;
+    bottom: 10%;
+    width: fit-content;
+    background: var(--toast_background_color);
+    color: var(--toast_text_color);
+    padding: 10px;
+    border-radius: 5px;
+    transition: right 1s;
+}
+
+.toast.top {
+    top: 4%;
+    bottom: unset;
+}
+
+.toast.hidden {
+    right: -100%;
+}
