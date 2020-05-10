@@ -10,6 +10,8 @@ const elementInputUrl = document.querySelector('#input-url');
 const elementBtnGenerateQrCode = document.querySelector('#btn-generate-qrcode');
 const elementBtnCleanInputUrl = document.querySelector('#btn-clean-input-url');
 
+const elementSpinnerId = 'spinner';
+
 elementInputUrl.addEventListener('input', () => {
     const url = elementInputUrl.value;
     habilitaDesabilitaBtns(url);
@@ -24,9 +26,11 @@ elementBtnCleanInputUrl.addEventListener('click', () => {
 elementBtnGenerateQrCode.addEventListener('click', async () => {
     const url = elementInputUrl.value;
     const qrcodeRequestPayload =  createQrCodeRequestPayload(url);
+    addSpinnerInBtn(elementBtnGenerateQrCode);
     await createQrCode(qrcodeRequestPayload)
         .then(response => downloadQrCode(response))
         .catch(error => analiseErroDownloadQrCode(error));
+    removeSpinner(elementBtnGenerateQrCode);
 })
 
 const downloadQrCode = (qrCode) => {
@@ -60,4 +64,24 @@ const habilitaDesabilitaBtns = (value) => {
         return;
     }
     desabilitaBtns();
+}
+
+const addSpinnerInBtn = (button) => {
+    const firstChild = button.childNodes[0];
+    const spinner = createSpinner();
+    firstChild ? button.insertBefore(spinner, firstChild) :  button.appendChild(spinner);
+}
+
+const removeSpinner = (button) => {
+    const elementSpinner = document.querySelector(`#${elementSpinnerId}`);
+    button.removeChild(elementSpinner);
+    elementSpinner.remove();
+}
+
+const createSpinner = () => {
+    const spinner = document.createElement('i');
+    spinner.setAttribute('id', elementSpinnerId);
+    const vectorSpinnerCssClass = ['fa', 'fa-refresh', 'fa-spin'];
+    vectorSpinnerCssClass.forEach(classCss => spinner.classList.add(classCss));
+    return spinner;
 }
